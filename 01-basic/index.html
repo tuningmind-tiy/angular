@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="ourApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular 1.x</title>
+    <script src="./scripts/angular.js"></script>
+    <link rel="stylesheet" href="">
+  </head>
+  <body >
+    <div class="directives">
+      <h1>Diretives</h1>
+      <div class="if">
+        <h2>ng-if: true or false?</h2>
+        <p ng-if="false">
+          false
+          </p>
+        <p ng-if="true">
+          true 
+        </p>
+      </div>
+
+      <div class="model init">
+        <label>
+          <input  type="checkbox" 
+                  ng-model="checked" 
+                  ng-init="checked=true">
+          Good morning?
+        </label>
+        <p> 
+          <span ng-if="checked">Liars - it is not a good morning! </span>
+          <span ng-if="!checked">
+            it may not be a good morning, but it's a great day to code!
+          </span>
+        </p>
+      <script src="./scripts/app.js"></script>
+
+      <div class="bind" ng-init="studentCount = 7">
+        <h2>ng-bind</h2> 
+        <p>The student count is <span ng-bind="studentCount"></span></p>
+        <p> 2 + 2 = {{2+2}}</p>
+        <ul>
+          <li>the checkbox above is checked: {{checked}}</li>
+          <li>studentCount is {{studentCount}}</li>
+        </ul>
+        <p>ng-bind, ng-model are known as directives</p>
+        <p>There are massive performance costs with Angular 1.
+        Angular 2 and React address those performance costs</p>
+      </div>
+
+      <div class="controllers">
+        <h1>Controllers</h1>
+        <div ng-controller="FirstCtrl">
+          <h3>$scope and Dependency Injection</h3>
+          <p>The time now is: {{now}}</p>
+          <p>The '$scope' is the Angular way of doing
+            dependency injection</p>
+          <h3>ng-click</h3>
+          <button ng-click="updateTime()">Update the time displayed</button>
+        </div>
+        <div ng-controler="BindingController">
+          <h3>Binding Controller</h3>
+          <p>What's your name?</p>
+          <input type="text" ng-model="userName".>
+          <p>Wuz up, {{userName}}</p>
+          <p>This is two way binding; input gets sent 
+             to, say, Firebase, and then right back
+             down. This is one source of performance
+             hit.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
